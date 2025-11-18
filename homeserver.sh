@@ -2,12 +2,24 @@
 
 set -e
 
-COMPOSE_FOLDERS="services/* cloudflared"
 
 if [ -z "$1" ]; then
   echo "Usage: $0 {up|down}"
   exit 1
 fi
+
+for should_decrypt_file in $(cat .gitattributes | cut -d' ' -f1 | xargs); do
+  if cat "$should_decrypt_file" | grep -q "^GITCRYPT"; then
+    if [ -z key ]; then
+      git-crypt unlock ./key
+    else
+      echo "Should decrypt a file using git-crypt but no key provided as 'key' file at repo root"
+      exit 2
+    fi
+  fi
+done
+
+COMPOSE_FOLDERS="services/* cloudflared"
 
 if [ "$1" = "up" ]; then
   docker network create homeserver-net

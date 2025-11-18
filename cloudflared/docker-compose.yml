@@ -8,7 +8,7 @@ services:
     environment:
       - TUNNEL_TOKEN=${TUNNEL_TOKEN}
     volumes:
-      - ./config/cloudflared.yml:/etc/cloudflared/config/config.yml:ro
+      - ./config/cloudflared.yml:/usr/local/etc/cloudflared/config.yml:ro
     networks:
       - homeserver-net
     ports:
