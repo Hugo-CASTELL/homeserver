@@ -1,0 +1,19 @@
+services:
+  cloudflare-tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflare-tunnel
+    hostname: cloudflare-tunnel
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+    volumes:
+      - ./config/cloudflared.yml:/etc/cloudflared/config/config.yml:ro
+    networks:
+      - homeserver-net
+    ports:
+      - 80:80
+
+networks:
+  homeserver-net:
+    external: true

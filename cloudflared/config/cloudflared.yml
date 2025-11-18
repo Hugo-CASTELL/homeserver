@@ -1,0 +1,8 @@
+tunnel: homeserver_tunnel
+
+ingress:
+  - hostname: glance.hugomade.it
+    service: http://nginx-reverse-proxy:8181/glance
+
+  - hostname: minecraft.hugomade.it
+    service: tcp://nginx-reverse-proxy:25565

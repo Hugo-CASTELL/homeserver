@@ -1,0 +1,13 @@
+services:
+  glance:
+    container_name: glance
+    image: glanceapp/glance
+    restart: unless-stopped
+    volumes:
+      - ./config:/app/config
+    networks:
+      - homeserver-net
+
+networks:
+  homeserver-net:
+    external: true
