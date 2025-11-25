@@ -6,8 +6,8 @@ services:
     volumes:
       - ./config:/app/config
     networks:
-      - homeserver-net
+      - closed-homeserver-net
 
 networks:
-  homeserver-net:
+  closed-homeserver-net:
     external: true

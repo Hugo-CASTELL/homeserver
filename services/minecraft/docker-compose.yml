@@ -9,11 +9,11 @@ services:
       TYPE: PAPER
       MEMORY: 2G
     networks:
-      - homeserver-net
+      - closed-homeserver-net
     volumes:
       - ./paper-server-data:/data
     restart: unless-stopped
 
 networks:
-  homeserver-net:
+  closed-homeserver-net:
     external: true
