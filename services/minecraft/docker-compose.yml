@@ -12,11 +12,11 @@ services:
       DIFFICULTY: hard
       MOTD: "§l§cMcDaServeur de retour"
     networks:
-      - homeserver-net
+      - closed-homeserver-net
     volumes:
       - ./paper-server-data:/data
     restart: unless-stopped
 
 networks:
-  homeserver-net:
+  closed-homeserver-net:
     external: true

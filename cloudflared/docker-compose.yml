@@ -10,10 +10,10 @@ services:
     volumes:
       - ./config/cloudflared.yml:/usr/local/etc/cloudflared/config.yml:ro
     networks:
-      - homeserver-net
+      - open-homeserver-net
     ports:
       - 80:80
 
 networks:
-  homeserver-net:
+  open-homeserver-net:
     external: true

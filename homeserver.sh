@@ -32,7 +32,8 @@ down() {
 
 if [ "$1" = "up" ]; then
 
-  docker network create homeserver-net
+  docker network create open-homeserver-net
+  docker network create closed-homeserver-net
 
   for folder in services/*; do
     if [ "$folder" = "services/nginx-reverse-proxy" ]; then
@@ -60,7 +61,8 @@ elif [ "$1" = "down" ]; then
     fi
   done
 
-  docker network remove homeserver-net
+  docker network remove closed-homeserver-net
+  docker network remove open-homeserver-net
 else
   echo "Usage: $0 {up|down}"
   exit 1
