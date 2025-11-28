@@ -7,7 +7,10 @@ services:
     environment:
       EULA: "TRUE"
       TYPE: PAPER
-      MEMORY: 2G
+      MEMORY: 96G
+      VERSION: 1.21.10
+      DIFFICULTY: hard
+      MOTD: "§l§cMcDaServeur de retour"
     networks:
       - homeserver-net
     volumes:
