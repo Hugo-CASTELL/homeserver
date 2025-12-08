@@ -1,20 +1,22 @@
 services:
-  mc:
+  mc-modded:
     image: itzg/minecraft-server
-    container_name: paper-server
+    container_name: modded-server
     tty: true
     stdin_open: true
     environment:
       EULA: "TRUE"
-      TYPE: PAPER
-      MEMORY: 64G
-      VERSION: 1.21.10
+      TYPE: MODRINTH
+      MODRINTH_LOADER: fabric
+      MODRINTH_MODPACK: shFhR8Vx
+      VERSION: 1.20.1
+      MEMORY: 32G
       DIFFICULTY: hard
-      MOTD: "§l§cMcDaServeur de retour"
+      MOTD: "§l§cMcDaServeur moddé enfin disponible"
     networks:
       - closed-homeserver-net
     volumes:
-      - ./paper-server-data:/data
+      - ./modded-server-data:/data
     restart: unless-stopped
 
 networks:

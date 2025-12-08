@@ -7,4 +7,7 @@ ingress:
   - hostname: minecraft.hugomade.it
     service: tcp://nginx-reverse-proxy:25565
 
+  - hostname: minecraftmodded.hugomade.it
+    service: tcp://nginx-reverse-proxy:25564
+
   - service: http://nginx-reverse-proxy:80
