@@ -1,0 +1,12 @@
+services:
+  portfolio:
+    container_name: portfolio
+    build:
+      context: https://github.com/Hugo-CASTELL/pf.git
+    restart: unless-stopped
+    networks:
+      - closed-homeserver-net
+
+networks:
+  closed-homeserver-net:
+    external: true

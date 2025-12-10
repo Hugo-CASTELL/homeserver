@@ -1,7 +1,7 @@
 tunnel: homeserver_tunnel
 
 ingress:
-  - hostname: bluemap.minecraft.hugomade.it
+  - hostname: bluemap.hugomade.it
     service: http://nginx-reverse-proxy:7002
 
   - hostname: glance.hugomade.it
@@ -14,6 +14,6 @@ ingress:
     service: tcp://nginx-reverse-proxy:25564
 
   - hostname: ssh.hugomade.it
-    service: ssh://localhost:22
+    service: ssh://172.17.0.1:22
 
   - service: http://nginx-reverse-proxy:80

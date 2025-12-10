@@ -16,22 +16,6 @@ services:
     volumes:
       - ./paper-server-data:/data
     restart: unless-stopped
-  bluemap:
-    image: ghcr.io/bluemap-minecraft/bluemap
-    container_name: bluemap-paper-server
-    restart: always
-    command: -r -u -w
-    volumes:
-      - ./bluemap/config:/app/config
-      - ./bluemap/data:/app/data
-      - ./bluemap/web:/app/web
-      - ./paper-server-data/world:/app/world:ro
-      - ./paper-server-data/world_nether:/app/world_nether:ro
-      - ./paper-server-data/world_the_end:/app/world_the_end:ro
-    depends_on:
-      mc:
-        condition: service_healthy
-        restart: true
 
 networks:
   closed-homeserver-net:

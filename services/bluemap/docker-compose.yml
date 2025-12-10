@@ -1,0 +1,20 @@
+services:
+  bluemap:
+    image: ghcr.io/bluemap-minecraft/bluemap
+    container_name: bluemap
+    restart: always
+    command: -r -u -w
+    networks:
+      - closed-homeserver-net
+    volumes:
+      - ./config/core.conf:/app/config/core.conf:ro
+      - ./bluemap/config:/app/config
+      - ./bluemap/data:/app/data
+      - ./bluemap/web:/app/web
+      - ../minecraft/paper-server-data/world:/app/world:ro
+      - ../minecraft/paper-server-data/world_nether:/app/world_nether:ro
+      - ../minecraft/paper-server-data/world_the_end:/app/world_the_end:ro
+
+networks:
+  closed-homeserver-net:
+    external: true
